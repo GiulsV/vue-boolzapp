@@ -8,23 +8,31 @@
 body{
     font-family: 'Lato', sans-serif;
 }
+
+/* DEBUG */
+
+.chats-container img {
+    max-width: 50px;
+    border-radius: 50px;
+}
+
 /* Sfondo */
 
 .main-bg .header-bg {
-    height: 100px;
+    height: 120px;
     background-color: #229A88;
 }
   
 .main-bg .body-bg {
-    height: calc(100vh - 100px);
+    height: calc(100vh - 120px);
     background-color: #D5DBD6;
 }
 
 /* Container di tutta l' App */
 
 .app-container {
-    background-color: rgb(110, 36, 28);
-    height: 95%;
+    background-color: salmon;
+    height: 95vh;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -35,50 +43,138 @@ body{
 
     /* Barra laterale con chat */
     .side-container {
-        background-color: rgb(0, 0, 0);
+        background-color: green;
         min-width: 330px;
+        min-height: 100%;
         display: flex;
         flex-direction: column;
-        height: 100%;
+        height: calc(100vh - 80px);
       
     }
 
         /* Header account laterale */
         .side-header {
-            min-height: 50px;
+            min-height: 60px;
             min-width: 330px;
-            background-color: pink;
-            border: solid 1px black;
+            background-color: #D5DBD6;
+            /* border: solid 1px black; */
+            display: flex;
+            /* padding: 10px; */
+            font-weight: bold;
+          
+          
+        }
+          
+        .side-header .profile-picture {
+            align-self: center;
+          
+        }
+          
+        .side-header .profile-picture img {
+            width: 50px;
+            border-radius: 50px;
+            padding: 5px;
+        }
+          
+        .side-header .user-name {
+            align-self: center;
+            width: calc(100% - 180px);
+        }
+          
+        .side-header .features-icons {
+            align-self: center;
+            color: #B1B1B1;
+        }
+          
+        .side-header .features-icons i {
+            margin-left: 10px;
+            font-size: 1.3em;
         }
 
         /* Blocco notifiche azzurro */
         .notifications {
             min-height: 50px;
-            background-color: rgb(16, 87, 180);
-            border: solid 1px black;
+            background-color: #76DCFF;
+            display: flex;
+            padding: 10px;
         }
+          
+        .bell {
+            padding: 10px;
+            border-radius: 50px;
+            background-color: white;
+            width: 13%;
+            position: relative;
+            align-self: center;
+          
+        }
+          
+        .bell > i {
+            border-radius: 50px;
+            color: #76DCFF;
+            font-size: 1.3em;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+          
+        .bell-message {
+            align-self: center;
+          
+        }
+          
+        .bell-message span {
+            display: block;
+            font-size: .9em;
+        }
+          
+        .bell-message span:last-child {
+            color: grey;
+            text-decoration: underline;
+          
+        }
+          
 
         /* Ricerca contatti */
         .search {
             min-height: 30px;
-            background-color: rgb(100, 245, 71);
+            background-color: pink;
             border: solid 1px black;
+            display: flex;
+        }
+
+        /* DEBUG */
+
+        .search div {
+            background-color: lightblue;
+            border: solid 1px black;
+            width: 100%;
         }
 
 
         /* Chats container */
 
         .chats-container {
-            height: calc(100% - 130px);
             background-color: red;
             border: solid 1px black;
+            overflow: scroll;
         }
+
             /* Tutte le chats */
             .single-chat {
                 height: 70px;
                 background-color: salmon;
                 border: solid 1px black;
-              
+                display: flex;
+
+            }
+
+            .single-chat div {
+                background-color: lightgreen;
+                border: solid 1px black;
+                width: 100%;
+                height: 70px;
             }
     
 
@@ -95,19 +191,74 @@ body{
         /* Chat header selezionata */
         .chat-header,
         .chat-footer {
-        min-height: 50px;
-        background-color: grey;
+          min-height: 50px;
+          background-color: grey;
+          display: flex;
+        }
 
+        /* DEBUG */
+        .chat-header div {
+            background-color: lightgreen;
+            border: solid 1px black;
+            width: 100%;
+            height: 50px;
+        
+        }
+        
+        .chat-header .profile-picture > img {
+            width: 30%;
         }
 
         /* Chat Body selezionata */
         .chat-body {
             min-height: calc(100% - 100px);
-            background-color: yellow;
+            background-image: url("../img/mine.jpg");
+            background-size: contain;
+            display: flex;
+            flex-direction: column;
+            overflow: scroll;
+        }
           
+        .message-block-user {
+            display: flex;
+            flex-direction: row-reverse;
+          
+        }
+          
+        .message-block-contact {
+            display: flex;
+        }
+          
+        .user-message, .contact-message {
+            background-color: white;
+            padding: 10px;
+        }
+          
+        .user-message {
+            background-color: #CBFBB3;
+            min-width: 50%;
+            max-width: 50%;
+            margin: 30px;
+        }
+          
+        .contact-message {
+            background-color: white;
+            min-width: 50%;
+            max-width: 50%;
+            margin: 30px;
         }
 
         /* Footer Chat selezionata */
+
+        /* DEBUG */
+
+        .chat-footer > div {
+            background-color: lightgreen;
+            border: solid 1px black;
+            width: 100%;
+            height: 50px;
+        
+        }
 
 
 
