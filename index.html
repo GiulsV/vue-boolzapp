@@ -41,12 +41,13 @@
         <!-- Header account laterale -->
 
         <div class="side-header">
+
           <div class="profile-picture">
-            <img src="img/avatar1.png" alt="User profile picture" />
+            <img src="img/avatar1.png" alt="User profile picture">
           </div>
 
           <div class="user-name">
-            <span>Nome utente</span>
+            <span>{{userName}}</span>
           </div>
 
           <div class="features-icons">
@@ -54,6 +55,7 @@
             <i class="fas fa-comment-alt"></i>
             <i class="fas fa-ellipsis-v"></i>
           </div>
+
         </div>
 
         <!-- Blocco notifiche azzurro -->
@@ -72,47 +74,45 @@
         <!-- Ricerca contatti -->
 
         <div class="search">
-          <div class="profile-picture">
-            <i class="fas fa-search"></i>
+
+          <div class="search-bothcontainer">
+
+            <div class="search-icon">
+              <i class="fas fa-search"></i>
+            </div>
+
+            <div class="search-input">
+              <input type="text"  placeholder="Cerca o inizia una nuova chat">
+            </div>
+
           </div>
 
-          <div class="person-name">
-            <input
-              type="text"
-              name=""
-              value=""
-              placeholder="Cerca o inizia una nuova chat"
-            />
-          </div>
         </div>
-
         <!-- Chats container-->
 
         <div class="chats-container">
 
           <!-- Tutte le chats -->
 
-          <div
-            v-for="(items, index) in contacts"
-            class="single-chat"
-            @click="openChat(index)">
+            <div class="single-chat" v-for="(item, index) in contactsList" v-if="item.status"  :class="(index === indexChat ? 'opened' : '')" @click="openChat(index)">
+  
+              <div class="contact-picture">
+                <img v-bind:src="item.contactPicture">
+              </div>
+  
+              <div class="contact-chat">
+                <span>{{item.name}}</span>
+                <span>{{item.allMessages[item.allMessages.length - 1].message}}</span>
+              </div>
+  
 
-            <div class="contact-picture">
-              <img v-bind:src="allChats[index].contactPicture" />
+  
             </div>
-
-            <div class="contact-chat">
-              <span>{{allChats[index].name}}</span>
-              <span>{{allChats[index].contactMessage}}</span>
-            </div>
-
-            <div class="contact-hour">
-              <span>28/05/2022</span>
-              <span>12:00</span>
-            </div>
+  
           </div>
+  
         </div>
-      </div>
+  
 
       <!-- Chat aperta/selezionata -->
 
@@ -123,13 +123,13 @@
         <div class="chat-header">
 
           <div class="profile-picture">
-            <img v-bind:src="allChats[indexChat].contactPicture" alt="User profile picture">
+            <img v-bind:src="contactsList[indexChat].contactPicture" alt="Contact profile picture">
           </div>
 
           <div class="person-name">
-            <span>{{allChats[indexChat].name}}</span>
+            <span>{{contactsList[indexChat].name}}</span>
             <span>Ultimo accesso oggi</span>
-            <span>28/05/2022 12:01:32</span>
+            <!-- <span>Funzione orario</span> -->
           </div>
 
           <div class="features-icons">
@@ -144,33 +144,12 @@
 
         <div class="chat-body">
 
-          <div class="message-block-user">
+          <span v-for="item in contactsList[indexChat].allMessages" v-bind:class="(item.origin)">
 
-            <div class="user-message">
-              <span>{{allChats[indexChat].contactMessage}}</span>
-              <span>20 11 2020 12:01:32</span>
-            </div>
+            <span>{{item.message}}</span>
+            <span>{{item.hour}}</span>
 
-          </div>
-
-          <div class="message-block-contact">
-
-            <div class="contact-message">
-              <span>{{allChats[indexChat].userMessage}}</span>
-              <span>20 11 2020 12:01:32</span>
-            </div>
-
-          </div>
-
-          <div class="message-block-user">
-
-            <div class="user-message">
-              <span>{{allChats[indexChat].contactMessage}}</span>
-              <span>20 11 2020 12:01:32</span>
-
-            </div>
-
-          </div>
+          </span>
 
         </div>
 
@@ -182,9 +161,7 @@
             <i class="far fa-smile"></i>
           </div>
 
-
-            <input type="text" name="" value="" placeholder="Scrivi un messaggio">
-
+          <input type="text" placeholder="Scrivi un messaggio" >
 
           <div class="audio">
             <i class="fas fa-microphone"></i>
@@ -196,6 +173,7 @@
       </div>
 
     </div>
+
 
     <!-- Fine -->
 

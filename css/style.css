@@ -13,12 +13,23 @@ a {
     font-size: 1em;
 }
 
+a:visited {
+    color: #447587;
+}
+
+.hidden {
+    visibility: hidden;
+}
+.show {
+    visibility: visible;
+}
+
 /* DEBUG */
 
-.chats-container img {
+/* .chats-container img {
     max-width: 50px;
     border-radius: 50px;
-}
+} */
 
 /* Sfondo */
 
@@ -134,10 +145,6 @@ a {
             text-decoration: underline;
         }
           
-        a:visited {
-            color: #447587;
-        }
-          
           
 
         /* Ricerca contatti */
@@ -182,14 +189,12 @@ a {
 
         .chats-container {
             overflow: scroll;
-            /* min-height: 650px; */
-            /* background-color: white; */
+            min-height: 650px;
         }
 
             /* Tutte le chats */
             .single-chat {
                 height: 70px;
-                background-color: white;
                 display: flex;
                 padding: 4px;
             }
@@ -197,35 +202,36 @@ a {
             .single-chat:hover {
                 background-color: #E9EBEB;
             }
-              
-            .contact-chat {
-                width: 50%;
-                overflow: hidden;
-                height: 50px;
+            
+            .opened {
+                background-color: #E9EBEB;
             }
-              
-            .single-chat .contact-chat span {
-                display: block;
-              
-            }
-              
+
+
             .single-chat .contact-chat span:last-child {
-                color: #D1D4D5;
+                color: grey;
                 font-size: .8em;
                 text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                height: 50px;
+                width: 180px;
+                display: block;
+                margin-top: 6px;
+            }
+              
+            .single-chat .contact-hour{
+                width: 90px;
               
             }
               
             .single-chat .contact-hour span {
-                color: #D1D4D5;
-                font-size: .7em;
+                color: grey;
+                font-size: .6em;
                 text-align: right;
-                font-weight: bold;
-              
-              
+                font-weight: lighter;
             }
-              
-              
+
             .single-chat img {
                 max-width: 55px;
                 border-radius: 50px;
@@ -258,7 +264,11 @@ a {
           margin: 5px;
         
         }
-        
+
+        .chat-header .features-icons {
+            min-width: 100px;
+        }
+
         .chat-header .profile-picture > img {
           width: 50px;
           border-radius: 50px;
@@ -287,58 +297,44 @@ a {
         /* Chat Body selezionata */
 
         .openchat-container {
-            background-color: lightcoral;
+            background-color: whitesmoke;
         }
           
         .chat-body {
-            min-height: calc(100% - 120px);
-            background-size: auto;
+            min-height: calc(100% - 128px);
+            background-color: lightcoral;
             display: flex;
             flex-direction: column;
             overflow: scroll;
-          
         }
           
-        .message-block-user {
-            display: flex;
-            flex-direction: row-reverse;
-          
-          
+        .sent {
+            background-color: #CBFBB3;
+            align-self: flex-end;
         }
           
-        .message-block-contact {
-            display: flex;
-          
-        }
-          
-        .user-message, .contact-message {
+        .received {
             background-color: white;
+            align-self: flex-start;
+        }
+          
+        .received, .sent {
             padding: 10px;
             border-radius: 10px;
+            min-width: 30%;
+            max-width: 40%;
+            margin: 30px;
+          
         }
           
-        .user-message span:last-child, .contact-message span:last-child {
+        .sent span:last-child, .received span:last-child {
             display: block;
             font-size: .7em;
             color: #B5B9BB;
             text-align: right;
-          
-          
-        }
-          
-        .user-message {
-            background-color: #CBFBB3;
-        }
-          
-        .contact-message, .user-message {
-            min-width: 50%;
-            max-width: 50%;
-            margin: 30px;
         }
 
         /* Footer Chat selezionata */
-
-        /* DEBUG */
 
         .chat-footer {
             height: 50px;
