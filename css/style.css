@@ -301,8 +301,8 @@ a:visited {
         }
           
         .chat-body {
-            min-height: calc(100% - 128px);
-            background-color: lightcoral;
+            min-height: calc(100% - 120px);
+            background-image: url("../img/sfondo_wa.JPG");
             display: flex;
             flex-direction: column;
             overflow: scroll;
