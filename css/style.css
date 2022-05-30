@@ -72,7 +72,7 @@ a:visited {
         .side-header {
             min-height: 60px;
             min-width: 330px;
-            background-color: #EAEAEA;
+            background-color: rgb(240,242,245);
             display: flex;
             font-weight: bold;
             align-items: center;
@@ -252,7 +252,7 @@ a:visited {
         .chat-header
         ,.chat-footer {
           min-height: 60px;
-          background-color: #F4EEE9;
+          background-color: rgb(240,242,245);
           display: flex;
           padding: 5px;
           align-items: center;
