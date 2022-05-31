@@ -332,42 +332,47 @@ a:visited {
           
         .sent span:last-child, .received span:last-child {
             display: block;
-            font-size: .7em;
+            font-size: 1em;
             color: #B5B9BB;
-            text-align: right;
+            text-align: center;
+            color: black;
+
         }
 
         /* Menu Dropdown */
 
         .received .arrow, .sent .arrow {
-            display: none !important;
+            visibility: hidden;
+            font-size: 1em;
+            margin: 0 2px;
         }
           
         .received:hover .arrow , .sent:hover .arrow {
-            display: inline-block !important;
+            cursor: pointer;
+            visibility: visible;
+            font-size: 1.1em;
+            margin: 0 2px;
+            color: grey;
+          
         }
           
-        .received:hover .arrow i , .sent:hover .arrow i {
-            font-size: 1em;
-            color: #B5B9BB;
-        }
-
         .drop-down {
             background-color: white;
+            color: black;
             display: none;
             position: absolute;
             right: 0px;
-            top: 90%;
+            top: 105%;
             padding: 5px;
-            width: 130px;
+            width: 150px;
             border-radius: 5px;
-            box-shadow: 1px 1px 10px lightgrey;
             text-align: center;
-            margin: 10px;
+            line-height: 40px;
         }
           
         .drop-down span {
-            font-size: .8em;
+            font-size: 1em;
+            cursor: pointer;
         }
           
         .drop-downopen {

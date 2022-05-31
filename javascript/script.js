@@ -327,6 +327,17 @@ var app = new Vue({
      }
     },
 
+    // MS - 5: funzione cancella messaggio
+    
+    deleteMessage(index) {
+  
+      this.contactsList[this.indexChat].allMessages.splice(index, 1);
+ 
+      console.log(index);
+      console.log(this.contactsList[this.indexChat].allMessages[index]);
+ 
+    },
+
 
   //  },
 

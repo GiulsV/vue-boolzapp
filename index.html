@@ -152,18 +152,22 @@
           v-bind:class="(messages.origin)">
 
             <span>{{messages.message}}</span>
-            <span class="message-hour">
-              {{messages.hour}}
-              <i @click="dropDown(index, messages)" class="fas fa-chevron-down arrow"></i>
+            <span class="message-hour">{{messages.hour}}
+              <i @click="dropDown(index)" class="fas fa-chevron-down arrow"></i>
             </span>
 
-            <div class="drop-down"
-            v-bind:class="messages.dropdown ? 'drop-downopen' : '' ">
-              <span>Info messaggio</span>
-              <span>Cancella messaggio</span>
-            </div>
-          </span>
 
+            <!-- Menu dropdown -->
+            <div
+              class="drop-down"
+              v-bind:class="messages.dropdown ? 'drop-downopen' : '' ">
+
+
+              <span>Info messaggio</span>
+              <span @click="deleteMessage(index)">Cancella messaggio</span>
+            </div>
+
+          </span>
 
         </div>
 
