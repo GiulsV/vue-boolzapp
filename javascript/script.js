@@ -32,8 +32,10 @@ var app = new Vue({
     userName: "Giulia Valente",
 
     inputMessage: "",
+
     openClass: "",
     searchInput: "",
+
     indexMessage: 0,
 
     indexChat: 0,
@@ -52,13 +54,13 @@ var app = new Vue({
             },
             {
               message: 'Ricordati di stendere i panni',
-              origin: "received",
+              origin: "sent",
               hour: "15:43",
               dropdown: '',
             },
             {
               message: 'Tutto fatto!',
-              origin: "sent",
+              origin: "received",
               hour: "17:24",
               dropdown: '',
             }
@@ -247,14 +249,13 @@ var app = new Vue({
       }  else {
 
         this.contactsList[this.indexChat].allMessages.push(
-
           {
-
             message: this.inputMessage,
             origin: "sent",
+            hour: this.currentHour(),
             dropdown: false,
-
-          });
+          }
+        );
           
           this.inputMessage = "";
           this.scrollAuto()
@@ -263,10 +264,10 @@ var app = new Vue({
 
           setTimeout(() => this.contactsList[this.indexChat].allMessages.push ({
 
-            message: 'Ok',
+            message: randomanswers[random],
             origin: 'received',
+            hour: this.currentHour(),
             dropdown: false,
-
 
           }), 1000);
 
@@ -328,7 +329,7 @@ var app = new Vue({
     },
 
     // MS - 5: funzione cancella messaggio
-    
+
     deleteMessage(index) {
   
       this.contactsList[this.indexChat].allMessages.splice(index, 1);
@@ -339,7 +340,41 @@ var app = new Vue({
     },
 
 
-  //  },
+    // Funzioni Data e Orario
+
+      currentHour() {
+  
+        let nowHour = new Date ();
+  
+        let seconds = nowHour.getSeconds();
+
+          if (seconds < 10) {
+            seconds = "0" + seconds;
+          }
+
+        let hour = nowHour.getHours()
+        let minute = nowHour.getMinutes()
+
+          if (minute < 10) {
+            minute = "0" + minute;
+          }
+  
+        return `${hour}:${minute}:${seconds}`
+      },
+
+      currentDay() {
+  
+        let todayDate = new Date ();
+  
+         let day = todayDate.getDate();
+         let month = todayDate.getMonth() + 1
+         let year = todayDate.getFullYear()
+  
+         return `${day}/${month}/${year}`
+  
+      },
+
+
 
 
 

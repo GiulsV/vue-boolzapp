@@ -12,6 +12,9 @@
       rel="stylesheet"/>
     <!-- Vue -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- Libreria Day.js -->
+    <!-- <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script> -->
+
     <!-- FontAwesom -->
     <link
       rel="stylesheet"
@@ -94,19 +97,24 @@
 
           <!-- Tutte le chats -->
 
-            <div class="single-chat" v-for="(item, index) in contactsList" v-if="item.status"  :class="(index === indexChat ? 'opened' : '')" @click="openChat(index)">
+            <div class="single-chat" v-for="(contact, index) in contactsList" v-if="contact.status" v-bind:class="(index === indexChat ? 'opened' : '')" @click="openChat(index)">
   
               <div class="contact-picture">
-                <img v-bind:src="item.contactPicture">
+                <img v-bind:src="contact.contactPicture">
               </div>
   
               <div class="contact-chat">
-                <span>{{item.name}}</span>
-                <span>{{item.allMessages[item.allMessages.length - 1].message}}</span>
+                <span>{{contact.name}}</span>
+                <span class="message-preview" v-if="contact.allMessages.length > 0">
+                  {{contact.allMessages[contact.allMessages.length - 1].message}}
+                </span>
               </div>
 
               <div class="contact-hour">
-                <span>{{item.allMessages[item.allMessages.length - 1].hour}} </span>
+                <span v-if="contact.allMessages.length >= 1">
+                  {{currentDay()}}
+                  {{contact.allMessages[contact.allMessages.length - 1].hour}}
+                </span>
               </div>
   
 
@@ -124,17 +132,22 @@
 
         <!-- Chat header selezionata -->
 
-        <div class="chat-header">
+        <div class="chat-header" v-for="(contact, index) in contactsList" v-if="index == indexChat">
 
           <div class="profile-picture">
-            <img v-bind:src="contactsList[indexChat].contactPicture" alt="Contact profile picture">
+            <img v-bind:src="contact.contactPicture" alt="Contact profile picture">
           </div>
 
           <div class="person-name">
-            <span>{{contactsList[indexChat].name}}</span>
-            <span>Ultimo accesso oggi</span>
-            <!-- <span>{{currentDay()}} alle {{item.allMessages[item.allMessages.length - 1].hour}}</span> -->
-          </div>
+            <span>{{contact.name}}</span>
+            <span>
+              Ultimo accesso oggi
+            </span>
+            <span v-if="contact.allMessages.length >= 1">
+              alle
+              {{contact.allMessages[contact.allMessages.length - 1].hour}}
+            </span>
+          </div> 
 
           <div class="features-icons">
             <i class="fas fa-search"></i>

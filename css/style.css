@@ -196,19 +196,14 @@ a:visited {
             .single-chat {
                 height: 70px;
                 display: flex;
-                padding: 4px;
+                padding-top: 4px;
             }
               
-            .single-chat:hover {
+            .single-chat:hover, .opened {
                 background-color: #E9EBEB;
             }
-            
-            .opened {
-                background-color: #E9EBEB;
-            }
-
-
-            .single-chat .contact-chat span:last-child {
+              
+            .single-chat .contact-chat .message-preview {
                 color: grey;
                 font-size: .8em;
                 text-overflow: ellipsis;
@@ -220,9 +215,8 @@ a:visited {
                 margin-top: 6px;
             }
               
-            .single-chat .contact-hour{
-                width: 90px;
-              
+            .single-chat .contact-hour {
+                width: 95px;
             }
               
             .single-chat .contact-hour span {
@@ -231,12 +225,14 @@ a:visited {
                 text-align: right;
                 font-weight: lighter;
             }
-
+              
             .single-chat img {
                 max-width: 55px;
                 border-radius: 50px;
-                margin: 0 10px 0 10px; ;
+                margin: 0 10px 0 10px;
             }
+
+
     
 
     
@@ -327,18 +323,15 @@ a:visited {
             max-width: 40%;
             margin: 30px;
             position: relative;
-          
         }
           
-        .sent span:last-child, .received span:last-child {
+        .sent .message-hour, .received .message-hour {
             display: block;
-            font-size: 1em;
+            font-size: .7em;
             color: #B5B9BB;
-            text-align: center;
-            color: black;
-
+            text-align: right;
         }
-
+        
         /* Menu Dropdown */
 
         .received .arrow, .sent .arrow {
