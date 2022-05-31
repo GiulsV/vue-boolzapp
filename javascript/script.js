@@ -204,6 +204,7 @@ var app = new Vue({
 
        this.indexChat = index;
        this.openClass = "opened";
+       this.scrollAuto()
 
     },
 
@@ -226,6 +227,7 @@ var app = new Vue({
           });
           
           this.inputMessage = "";
+          this.scrollAuto()
           
           // Messaggio di risposta con 1 sec di ritardo
 
@@ -234,9 +236,31 @@ var app = new Vue({
             message: 'Ok',
             origin: 'received',
 
+
           }), 1000);
+
+          setTimeout( () => this.scrollAuto(), 1000 );
         }
+
+        
     },
+
+
+
+    // Scroll all'ultimo messaggio
+
+    scrollAuto() {
+  
+      setTimeout(()=>{
+
+        var container = document.querySelector(".chat-body");
+        var scrollHeight = container.scrollHeight;
+        container.scrollTop = scrollHeight;
+
+      },5);
+
+    },
+
 
     // MS - 4: Ricerca Utente
 
