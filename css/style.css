@@ -17,29 +17,16 @@ a:visited {
     color: #447587;
 }
 
-/* .hidden {
-    visibility: hidden;
-}
-.show {
-    visibility: visible;
-} */
-
-/* DEBUG */
-
-/* .chats-container img {
-    max-width: 50px;
-    border-radius: 50px;
-} */
 
 /* Sfondo */
 
 .header-bg {
-    height: 100px;
+    height: 120px;
     background-color: #229A88;
 }
   
 .body-bg {
-    height: calc(100vh - 100px);
+    height: calc(100vh - 120px);
     background-color: #D5DBD6;
 }
 
@@ -58,13 +45,11 @@ a:visited {
     /* Barra laterale con chat */
 
     .side-container {
-        /* min-width: 370px; */
         min-height: 100%;
         display: flex;
         flex-direction: column;
         height: calc(100vh - 80px);
         background-color: white;
-      
     }
 
         /* Header account laterale */
@@ -74,7 +59,7 @@ a:visited {
             min-width: 330px;
             background-color: rgb(240,242,245);
             display: flex;
-            font-weight: bold;
+            font-weight: 500;
             align-items: center;
         }
           
@@ -188,7 +173,7 @@ a:visited {
         /* Chats container */
 
         .chats-container {
-            overflow: scroll;
+            overflow-y: scroll;
             height: 100vh;
         }
 
@@ -217,13 +202,16 @@ a:visited {
               
             .single-chat .contact-hour {
                 width: 95px;
+                display: flex;
+                justify-content: flex-end;
+                margin-right: .5rem;
             }
               
             .single-chat .contact-hour span {
-                color: grey;
+                color: rgb(153, 150, 150);
                 font-size: .6em;
                 text-align: right;
-                font-weight: lighter;
+                font-weight: normal;
             }
               
             .single-chat img {
@@ -264,7 +252,9 @@ a:visited {
         }
 
         .chat-header .features-icons {
-            min-width: 100px;
+            min-width: 175px;
+            display: flex;
+            justify-content: end;
         }
 
         .chat-header .profile-picture > img {
@@ -275,6 +265,7 @@ a:visited {
         .chat-header .person-name {
           color: grey;
           width: 75%;
+          margin-left: .5rem;
         }
         
         .chat-header .person-name span:first-child {
@@ -303,7 +294,7 @@ a:visited {
             background-image: url("../img/sfondo_wa.JPG");
             display: flex;
             flex-direction: column;
-            overflow: scroll;
+            overflow-y: scroll;
         }
           
         .sent {
@@ -331,7 +322,7 @@ a:visited {
             color: #B5B9BB;
             text-align: right;
         }
-        
+
         /* Menu Dropdown */
 
         .received .arrow, .sent .arrow {
@@ -402,7 +393,5 @@ a:visited {
             color: #6C7678;
             font-size: 1.4em;
         } 
-
-
 
 /* Fine */  

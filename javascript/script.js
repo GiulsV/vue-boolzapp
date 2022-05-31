@@ -68,7 +68,7 @@ var app = new Vue({
         },
         {
          name: 'Fabio',
-         contactPicture: 'img/avatar2.png',
+         contactPicture: 'img/avatar3.png',
          status: true,
          allMessages: [
            {
@@ -93,7 +93,7 @@ var app = new Vue({
         },
         {
       name: 'Samuele',
-      contactPicture: 'img/avatar2.png',
+      contactPicture: 'img/avatar4.png',
       status: true,
       allMessages: [
         {
@@ -118,7 +118,7 @@ var app = new Vue({
       },
         {
         name: 'Alessandro B.',
-        contactPicture: 'img/avatar2.png',
+        contactPicture: 'img/avatar5.png',
         status: true,
         allMessages: [
           {
@@ -137,7 +137,7 @@ var app = new Vue({
         },
         {
          name: 'Alessandro L.',
-         contactPicture: 'img/avatar2.png',
+         contactPicture: 'img/avatar6.png',
          status: true,
          allMessages: [
            {
@@ -156,7 +156,7 @@ var app = new Vue({
         },
         {
         name: 'Claudia',
-        contactPicture: 'img/avatar2.png',
+        contactPicture: 'img/avatar3.png',
         status: true,
         allMessages: [
           {
@@ -200,7 +200,7 @@ var app = new Vue({
       },
         {
       name: 'Davide',
-      contactPicture: 'img/avatar2.png',
+      contactPicture: 'img/avatar4.png',
       status: true,
       allMessages: [
         {
@@ -264,7 +264,7 @@ var app = new Vue({
 
           setTimeout(() => this.contactsList[this.indexChat].allMessages.push ({
 
-            message: randomanswers[random],
+            message: 'Ok',
             origin: 'received',
             hour: this.currentHour(),
             dropdown: false,
@@ -287,7 +287,7 @@ var app = new Vue({
         var scrollHeight = container.scrollHeight;
         container.scrollTop = scrollHeight;
 
-      },5);
+      },50);
 
     },
 
@@ -345,12 +345,6 @@ var app = new Vue({
       currentHour() {
   
         let nowHour = new Date ();
-  
-        let seconds = nowHour.getSeconds();
-
-          if (seconds < 10) {
-            seconds = "0" + seconds;
-          }
 
         let hour = nowHour.getHours()
         let minute = nowHour.getMinutes()
@@ -359,7 +353,7 @@ var app = new Vue({
             minute = "0" + minute;
           }
   
-        return `${hour}:${minute}:${seconds}`
+        return `${hour}:${minute}`
       },
 
       currentDay() {
