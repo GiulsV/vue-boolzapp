@@ -17,12 +17,12 @@ a:visited {
     color: #447587;
 }
 
-.hidden {
+/* .hidden {
     visibility: hidden;
 }
 .show {
     visibility: visible;
-}
+} */
 
 /* DEBUG */
 
@@ -58,7 +58,7 @@ a:visited {
     /* Barra laterale con chat */
 
     .side-container {
-        min-width: 370px;
+        /* min-width: 370px; */
         min-height: 100%;
         display: flex;
         flex-direction: column;
@@ -189,7 +189,7 @@ a:visited {
 
         .chats-container {
             overflow: scroll;
-            min-height: 650px;
+            height: 100vh;
         }
 
             /* Tutte le chats */
@@ -243,15 +243,17 @@ a:visited {
     /* Chat aperta/selezionata */
 
     .openchat-container {
-        min-width: 650px;
+        min-width: 60vw;
         display: flex;
         flex-direction: column;
     }
 
         /* Chat header selezionata */
+
         .chat-header
         ,.chat-footer {
           min-height: 60px;
+          max-height: 60px;
           background-color: rgb(240,242,245);
           display: flex;
           padding: 5px;
@@ -324,6 +326,7 @@ a:visited {
             min-width: 30%;
             max-width: 40%;
             margin: 30px;
+            position: relative;
           
         }
           
@@ -333,6 +336,45 @@ a:visited {
             color: #B5B9BB;
             text-align: right;
         }
+
+        /* Menu Dropdown */
+
+        .received .arrow, .sent .arrow {
+            display: none !important;
+        }
+          
+        .received:hover .arrow , .sent:hover .arrow {
+            display: inline-block !important;
+        }
+          
+        .received:hover .arrow i , .sent:hover .arrow i {
+            font-size: 1em;
+            color: #B5B9BB;
+        }
+
+        .drop-down {
+            background-color: white;
+            display: none;
+            position: absolute;
+            right: 0px;
+            top: 90%;
+            padding: 5px;
+            width: 130px;
+            border-radius: 5px;
+            box-shadow: 1px 1px 10px lightgrey;
+            text-align: center;
+            margin: 10px;
+        }
+          
+        .drop-down span {
+            font-size: .8em;
+        }
+          
+        .drop-downopen {
+            display: inline-block;
+        }
+
+
 
         /* Footer Chat selezionata */
 

@@ -104,6 +104,10 @@
                 <span>{{item.name}}</span>
                 <span>{{item.allMessages[item.allMessages.length - 1].message}}</span>
               </div>
+
+              <div class="contact-hour">
+                <span>{{item.allMessages[item.allMessages.length - 1].hour}} </span>
+              </div>
   
 
   
@@ -129,7 +133,7 @@
           <div class="person-name">
             <span>{{contactsList[indexChat].name}}</span>
             <span>Ultimo accesso oggi</span>
-            <!-- <span>Funzione orario</span> -->
+            <!-- <span>{{currentDay()}} alle {{item.allMessages[item.allMessages.length - 1].hour}}</span> -->
           </div>
 
           <div class="features-icons">
@@ -144,12 +148,22 @@
 
         <div class="chat-body">
 
-          <span v-for="item in contactsList[indexChat].allMessages" v-bind:class="(item.origin)">
+          <span v-for="(messages, index) in contactsList[indexChat].allMessages"
+          v-bind:class="(messages.origin)">
 
-            <span>{{item.message}}</span>
-            <span>{{item.hour}}</span>
+            <span>{{messages.message}}</span>
+            <span class="message-hour">
+              {{messages.hour}}
+              <i @click="dropDown(index, messages)" class="fas fa-chevron-down arrow"></i>
+            </span>
 
+            <div class="drop-down"
+            v-bind:class="messages.dropdown ? 'drop-downopen' : '' ">
+              <span>Info messaggio</span>
+              <span>Cancella messaggio</span>
+            </div>
           </span>
+
 
         </div>
 
